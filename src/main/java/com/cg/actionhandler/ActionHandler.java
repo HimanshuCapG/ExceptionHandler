@@ -1,5 +1,6 @@
 package com.cg.actionhandler;
 
+import java.lang.reflect.Method;
 import java.util.Map;
 
 import com.cg.xmlparser.Parser;
@@ -33,18 +34,20 @@ public class ActionHandler {
 
 		System.out.println(methodName + " threw " + exceptionName + "\n");
 
-		try {
-			Map<String, Map<String, String>> actionMap = Parser.config.get(methodName).get(exceptionName);
+		Map<String, Map<String, String>> actionMap = Parser.config.get(methodName).get(exceptionName);
 
-			actionMap.forEach((key, attributes) -> {
-				String attribute1 = (String) attributes.values().toArray()[0];
-				String attribute2 = (String) attributes.values().toArray()[1];
-				String[] args = { key, attribute1, attribute2 };
-				Action action = factory.getAction(args);
-				action.performAction();
-			});
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		actionMap.forEach((key, attributes) -> {
+			String attribute1 = (String) attributes.values().toArray()[0];
+			String attribute2 = (String) attributes.values().toArray()[1];
+			String[] args = { key, attribute1, attribute2 };
+			try {
+				Class<?> actionClass = Class.forName("com.cg.actions.Action");
+				Object action = factory.getAction(args);
+				Method method = actionClass.getMethod("performAction");
+				method.invoke(action);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		});
 	}
 }
