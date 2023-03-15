@@ -11,7 +11,7 @@ public class Log extends Action {
 
 	@Override
 	public void performAction() {
-		System.out.println("Logging to " + name + " : " + file);
+		System.out.println("Writing logs to \t" + name + " : \t" + file);
 	}
 
 }

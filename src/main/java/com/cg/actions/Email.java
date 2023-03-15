@@ -11,7 +11,7 @@ public class Email extends Action {
 
 	@Override
 	public void performAction() {
-		System.out.println("Sending email to " + to + " : " + emailBody);
+		System.out.println("Sending mail to \t" + to + " : \t" + emailBody);
 	}
 
 }

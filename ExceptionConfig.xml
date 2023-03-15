@@ -4,21 +4,21 @@
       <exception name="AccountNotFoundException">
          <actions>
             <sms to="9875454" sms_body="Cant withdraw from non existent account" />
-            <email to="sagar@gmail.com" emailbody="Cant withdraw from non existent account" />
+            <email to="sagar@gmail" emailbody="Cant withdraw from non existent account" />
             <log to="file.txt" file="Cant withdraw from non existent account" />
          </actions>
       </exception>
       <exception name="InsufficientBalanceException">
          <actions>
             <sms to="9875454" sms_body="Not enough funds" />
-            <email to="basu@gmail.com" emailbody="Not enough funds" />
+            <email to="basu@gmail" emailbody="Not enough funds" />
             <log to="file.txt" file="Not enough funds" />
          </actions>
       </exception>
       <exception name="NegativeAmountException">
          <actions>
             <sms to="9875454" sms_body="Invalid amount to withdraw" />
-            <email to="garbit@gmail.com" emailbody="Invalid amount to withdraw" />
+            <email to="garbit@gmail" emailbody="Invalid amount to withdraw" />
             <log to="file.txt" file="Invalid amount to withdraw" />
          </actions>
       </exception>
@@ -27,14 +27,14 @@
       <exception name="AccountNotFoundException">
          <actions>
             <sms to="9875454" sms_body="Cant deposit to non existent account" />
-            <email to="ashish@gmail.com" emailbody="Cant deposit to non existent account" />
+            <email to="ashish@gmail" emailbody="Cant deposit to non existent account" />
             <log to="file.txt" file="Cant deposit to non existent account" />
          </actions>
       </exception>
       <exception name="NegativeAmountException">
          <actions>
             <sms to="9875454" sms_body="Invalid amount to deposit" />
-            <email to="bibek@gmail.com" emailbody="Invalid amount to deposit" />
+            <email to="bibek@gmail" emailbody="Invalid amount to deposit" />
             <log to="file.txt" file="Cant deposit to non existent account" />
          </actions>
       </exception>
@@ -50,14 +50,14 @@
       <exception name="InsufficientBalanceException">
          <actions>
             <sms to="9875454" sms_body="Low balance in sending account" />
-            <email to="naveen@gmail.com" emailbody="Low balance in sending account" />
+            <email to="naveen@gmail" emailbody="Low balance in sending account" />
             <log to="log" file="Low balance in sending account" />
          </actions>
       </exception>
       <exception name="NegativeAmountException">
          <actions>
             <sms to="9875454" sms_body="Invalid amount to tranfer" />
-            <email to="shivprasad@gmail.com" emailbody="Invalid amount to tranfer" />
+            <email to="shivprasad@gmail" emailbody="Invalid amount to tranfer" />
             <log to="log" file="Invalid amount to tranfer" />
          </actions>
       </exception>

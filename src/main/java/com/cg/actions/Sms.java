@@ -12,7 +12,7 @@ public class Sms extends Action {
 
 	@Override
 	public void performAction() {
-		System.out.println("Sending SMS to " + to + " : " + smsBody);
+		System.out.println("Sending SMS to \t\t" + to + " : \t" + smsBody);
 	}
 
 }

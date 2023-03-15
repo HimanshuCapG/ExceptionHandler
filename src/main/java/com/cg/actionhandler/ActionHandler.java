@@ -27,11 +27,12 @@ public class ActionHandler {
 	 */
 	public void handle(Exception exception) {
 		StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
-		
+
 		String methodName = stackTraceElements[2].getMethodName();
 		String exceptionName = exception.toString();
-		
-		System.out.println(methodName + exceptionName);
+
+		System.out.println(methodName + " threw " + exceptionName + "\n");
+
 		try {
 			Map<String, Map<String, String>> actionMap = Parser.config.get(methodName).get(exceptionName);
 
