@@ -16,11 +16,11 @@ public class Main {
 	static ActionHandler handler = new ActionHandler();
 
 	public static void WithdrawAmount() {
-		handler.handle(new AccountNotFoundException("Some Err"));
+		handler.handle(new AccountNotFoundException());
 	}
 
 	public static void DepositAmount() {
-		handler.handle(new AccountNotFoundException("Some Err"));
+		handler.handle(new AccountNotFoundException());
 	}
 
 	public static void FundTransfer() {
@@ -30,8 +30,8 @@ public class Main {
 	public static void main(String[] args) {
 		Parser.readXML(); // must be callable once
 
-//		WithdrawAmount();
+		WithdrawAmount();
 //		FundTransger();
-		DepositAmount();
+//		DepositAmount();
 	}
 }

@@ -15,10 +15,12 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class Parser {
-	final static String FILENAME = "ExceptionHandler.xml";
+
+	final static String FILENAME = "ExceptionConfig.xml";
 	static public Map<String, Map<String, Map<String, Map<String, String>>>> config = new LinkedHashMap<String, Map<String, Map<String, Map<String, String>>>>();
 
 	public static void readXML() {
+
 		DocumentBuilderFactory documentBiBuilderFactory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder docBuilder = documentBiBuilderFactory.newDocumentBuilder();

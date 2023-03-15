@@ -2,8 +2,8 @@ package com.cg.exceptions;
 
 @SuppressWarnings("serial")
 public class AccountNotFoundException extends Exception {
-	public AccountNotFoundException(String e) {
-		super(e);
+	public AccountNotFoundException() {
+		super();
 	}
 
 	@Override

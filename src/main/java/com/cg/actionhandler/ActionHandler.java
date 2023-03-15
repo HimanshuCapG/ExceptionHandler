@@ -27,19 +27,23 @@ public class ActionHandler {
 	 */
 	public void handle(Exception exception) {
 		StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
-
+		
 		String methodName = stackTraceElements[2].getMethodName();
 		String exceptionName = exception.toString();
+		
+		System.out.println(methodName + exceptionName);
+		try {
+			Map<String, Map<String, String>> actionMap = Parser.config.get(methodName).get(exceptionName);
 
-		Map<String, Map<String, String>> actionMap = Parser.config.get(methodName).get(exceptionName);
-
-		actionMap.forEach((key, attributes) -> {
-			String attribute1 = (String) attributes.values().toArray()[0];
-			String attribute2 = (String) attributes.values().toArray()[1];
-			String[] args = { key, attribute1, attribute2 };
-			Action action = factory.getAction(args);
-			action.performAction();
-		});
-
+			actionMap.forEach((key, attributes) -> {
+				String attribute1 = (String) attributes.values().toArray()[0];
+				String attribute2 = (String) attributes.values().toArray()[1];
+				String[] args = { key, attribute1, attribute2 };
+				Action action = factory.getAction(args);
+				action.performAction();
+			});
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
