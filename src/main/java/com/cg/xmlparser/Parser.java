@@ -16,6 +16,10 @@ import org.xml.sax.SAXException;
 
 public class Parser {
 
+	private Parser() {
+		throw new IllegalStateException();
+	}
+
 	final static String FILENAME = "ExceptionConfig.xml";
 	static public Map<String, Map<String, Map<String, Map<String, String>>>> config = new LinkedHashMap<String, Map<String, Map<String, Map<String, String>>>>();
 

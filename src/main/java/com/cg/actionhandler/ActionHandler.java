@@ -5,7 +5,6 @@ import java.util.Map;
 
 import com.cg.xmlparser.Parser;
 import com.cg.actionfactory.ActionFactory;
-import com.cg.actions.Action;
 
 /**
  * Action handler class to be called when an exception occurs. This class
@@ -20,22 +19,33 @@ public class ActionHandler {
 	// Factory object to get action object
 	static ActionFactory factory = new ActionFactory();
 
+	static {
+		Parser.readXML();
+	}
+
 	/**
 	 * Function to handle provided exception. Gets the function name and exception
 	 * name and perform respective actions.
 	 * 
 	 * @param exception
 	 */
-	public void handle(Exception exception) {
+	public static void handle(Exception exception) {
 		StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
 
 		String methodName = stackTraceElements[2].getMethodName();
 		String exceptionName = exception.toString();
 
-		System.out.println(methodName + " threw " + exceptionName + "\n");
+		System.out.println("\n" + exception.getMessage() + "\n");
 
-		Map<String, Map<String, String>> actionMap = Parser.config.get(methodName).get(exceptionName);
+//		System.out.println(methodName + " threw " + exceptionName + "\n");
 
+		Map<String, Map<String, String>> actionMap = null;
+		try {
+			actionMap = Parser.config.get(methodName).get(exceptionName);
+		} catch (Exception e) {
+			System.err.println("Could not load action from XML");
+			return;
+		}
 		actionMap.forEach((key, attributes) -> {
 			String attribute1 = (String) attributes.values().toArray()[0];
 			String attribute2 = (String) attributes.values().toArray()[1];

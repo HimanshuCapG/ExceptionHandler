@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-   <module name="WithdrawAmount">
+   <module name="withdraw">
       <exception name="AccountNotFoundException">
          <actions>
             <sms to="9875454" sms_body="Cant withdraw from non existent account" />
@@ -8,14 +8,14 @@
             <log to="file.txt" file="Cant withdraw from non existent account" />
          </actions>
       </exception>
-      <exception name="InsufficientBalanceException">
+      <exception name="LowBalanceException">
          <actions>
             <sms to="9875454" sms_body="Not enough funds" />
             <email to="basu@gmail" emailbody="Not enough funds" />
             <log to="file.txt" file="Not enough funds" />
          </actions>
       </exception>
-      <exception name="NegativeAmountException">
+      <exception name="InvalidAmountException">
          <actions>
             <sms to="9875454" sms_body="Invalid amount to withdraw" />
             <email to="garbit@gmail" emailbody="Invalid amount to withdraw" />
@@ -23,7 +23,7 @@
          </actions>
       </exception>
    </module>
-   <module name="DepositAmount">
+   <module name="deposit">
       <exception name="AccountNotFoundException">
          <actions>
             <sms to="9875454" sms_body="Cant deposit to non existent account" />
@@ -31,7 +31,7 @@
             <log to="file.txt" file="Cant deposit to non existent account" />
          </actions>
       </exception>
-      <exception name="NegativeAmountException">
+      <exception name="InvalidAmountException">
          <actions>
             <sms to="9875454" sms_body="Invalid amount to deposit" />
             <email to="bibek@gmail" emailbody="Invalid amount to deposit" />
@@ -39,7 +39,7 @@
          </actions>
       </exception>
    </module>
-   <module name="FundTransfer">
+   <module name="fundTransfer">
       <exception name="AccountNotFoundException">
          <actions>
             <sms to="9875454" sms_body="Inavlid account for fund transfer" />
@@ -47,14 +47,21 @@
             <log to="file.txt" file="Inavlid account for fund transfer" />
          </actions>
       </exception>
-      <exception name="InsufficientBalanceException">
+      <exception name="LowBalanceException">
          <actions>
             <sms to="9875454" sms_body="Low balance in sending account" />
             <email to="naveen@gmail" emailbody="Low balance in sending account" />
             <log to="log" file="Low balance in sending account" />
          </actions>
       </exception>
-      <exception name="NegativeAmountException">
+      <exception name="InvalidAmountException">
+         <actions>
+            <sms to="9875454" sms_body="Invalid amount to tranfer" />
+            <email to="shivprasad@gmail" emailbody="Invalid amount to tranfer" />
+            <log to="log" file="Invalid amount to tranfer" />
+         </actions>
+      </exception>
+      <exception name="SameAccountException">
          <actions>
             <sms to="9875454" sms_body="Invalid amount to tranfer" />
             <email to="shivprasad@gmail" emailbody="Invalid amount to tranfer" />
