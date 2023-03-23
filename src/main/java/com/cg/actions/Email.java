@@ -1,5 +1,7 @@
 package com.cg.actions;
 
+import com.cg.actionfactory.utils.BankAppLogger;
+
 public class Email extends Action {
 	private String to;
 	private String emailBody;
@@ -11,7 +13,8 @@ public class Email extends Action {
 
 	@Override
 	public void performAction() {
-		System.out.println("Sending mail to \t" + to + " : \t" + emailBody);
+		BankAppLogger logger = new BankAppLogger(getClass());
+		logger.info("Sending mail to \t" + to + " : \t" + emailBody);
 	}
 
 }

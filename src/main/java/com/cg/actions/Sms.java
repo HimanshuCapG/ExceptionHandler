@@ -1,5 +1,7 @@
 package com.cg.actions;
 
+import com.cg.actionfactory.utils.BankAppLogger;
+
 public class Sms extends Action {
 
 	private String to;
@@ -12,7 +14,8 @@ public class Sms extends Action {
 
 	@Override
 	public void performAction() {
-		System.out.println("Sending SMS to \t\t" + to + " : \t" + smsBody);
+		BankAppLogger logger = new BankAppLogger(getClass());
+		logger.info("Sending SMS to \t\t" + to + " : \t" + smsBody);
 	}
 
 }
