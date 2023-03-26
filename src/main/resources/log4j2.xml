@@ -7,8 +7,9 @@
   </Appenders>
 
   <Loggers>
-    <Root level="debug">
-      <AppenderRef ref="File"/>
-    </Root>
+     <Root>
+         <AppenderRef ref="File" level="error "/>
+         <AppenderRef ref="File" level="info" />
+     </Root>
   </Loggers>
 </Configuration>
